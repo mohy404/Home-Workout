@@ -1,107 +1,94 @@
-import { StyleSheet, Text, View, SafeAreaView, Image,ScrollView } from "react-native";
-import React ,{useContext} from "react";
+import React, { useContext } from "react";
+import { StyleSheet, Text, View, SafeAreaView, Image, ScrollView } from "react-native";
 import FitnessCards from "../components/FitnessCards";
 import { FitnessItems } from "../Context";
 
 const HomeScreen = () => {
-  const {
-   
-    minutes,
-  
-    calories,
+  const { minutes, calories, workout } = useContext(FitnessItems);
 
-    workout,
-  } = useContext(FitnessItems);
   return (
-    <ScrollView style={{marginTop:40}}>
-      <View
-        style={{
-          backgroundColor: "#CD853F",
-          padding: 10,
-          height: 200,
-          width: "100%",
-        }}
-      >
-        <Text style={{ color: "white", fontWeight: "bold", fontSize: 18 }}>
-          HOME WORKOUT
-        </Text>
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollView}>
+        <View style={styles.header}>
+          <Text style={styles.headerText}>HOME WORKOUT</Text>
 
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-            marginTop: 20,
-          }}
-        >
-          <View>
-            <Text
-              style={{
-                textAlign: "center",
-                fontWeight: "bold",
-                color: "white",
-                fontSize: 18,
-              }}
-            >
-              {workout}
-            </Text>
-            <Text style={{ color: "#D0D0D0", fontSize: 17, marginTop: 6 }}>
-              WORKOUTS
-            </Text>
+          <View style={styles.statsContainer}>
+            <StatItem value={workout} label="WORKOUTS" />
+            <StatItem value={calories} label="KCAL" />
+            <StatItem value={minutes} label="MINS" />
           </View>
 
-          <View>
-            <Text
-              style={{
-                textAlign: "center",
-                fontWeight: "bold",
-                color: "white",
-                fontSize: 18,
+          <View style={styles.imageContainer}>
+            <Image
+              style={styles.image}
+              source={{
+                uri: "https://cdn-images.cure.fit/www-curefit-com/image/upload/c_fill,w_842,ar_1.2,q_auto:eco,dpr_2,f_auto,fl_progressive/image/test/sku-card-widget/gold2.png",
               }}
-            >
-              {calories}
-            </Text>
-            <Text style={{ color: "#D0D0D0", fontSize: 17, marginTop: 6 }}>
-              KCAL
-            </Text>
-          </View>
-
-          <View>
-            <Text
-              style={{
-                textAlign: "center",
-                fontWeight: "bold",
-                color: "white",
-                fontSize: 18,
-              }}
-            >
-              {minutes}
-            </Text>
-            <Text style={{ color: "#D0D0D0", fontSize: 17, marginTop: 6 }}>
-              MINS
-            </Text>
+            />
           </View>
         </View>
 
-        <View style={{ justifyContent: "center", alignItems: "center" }}>
-          <Image
-            style={{
-              width: "90%",
-              height: 120,
-              marginTop: 20,
-              borderRadius: 7,
-            }}
-            source={{
-              uri: "https://cdn-images.cure.fit/www-curefit-com/image/upload/c_fill,w_842,ar_1.2,q_auto:eco,dpr_2,f_auto,fl_progressive/image/test/sku-card-widget/gold2.png",
-            }}
-          />
-        </View>
-        <FitnessCards/>
-      </View>
-    </ScrollView>
+        <FitnessCards />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
-export default HomeScreen;
+const StatItem = ({ value, label }) => (
+  <View style={styles.statItem}>
+    <Text style={styles.statValue}>{value}</Text>
+    <Text style={styles.statLabel}>{label}</Text>
+  </View>
+);
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#CD853F",
+    padding: 10,
+  },
+  scrollView: {
+    marginTop: 40,
+  },
+  header: {
+    height: 200,
+    width: "100%",
+  },
+  headerText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  statsContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: 20,
+  },
+  statItem: {
+    alignItems: "center",
+  },
+  statValue: {
+    textAlign: "center",
+    fontWeight: "bold",
+    color: "white",
+    fontSize: 18,
+  },
+  statLabel: {
+    color: "#D0D0D0",
+    fontSize: 17,
+    marginTop: 6,
+  },
+  imageContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 20,
+  },
+  image: {
+    width: "90%",
+    height: 120,
+    borderRadius: 7,
+  },
+});
+
+export default HomeScreen;
