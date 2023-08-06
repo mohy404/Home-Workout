@@ -1,6 +1,6 @@
 # Home-Workout
 
-A cross-platform Uber clone app built with React Native, Expo
+A cross-platform Home-Workout clone app built with React Native, Expo
 
 ## Demo
 
@@ -19,7 +19,7 @@ A cross-platform Uber clone app built with React Native, Expo
 Clone the project
 
 ```bash
-  git clone https://github.com/mohy404/Uber-Clone-React-Native.git
+  git clone https://github.com/mohy404/Home-Workout.git
 ```
 
 Go to the project directory
