@@ -1,6 +1,6 @@
 # Home-Workout
 
-A cross-platform Home-Workout app built with React Native, Expo
+A cross-platform Home-Workout app built with React Native, Expo/Cli
 
 
 
