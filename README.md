@@ -1,6 +1,6 @@
 # Home-Workout
 
-A cross-platform Home-Workout clone app built with React Native, Expo
+A cross-platform Home-Workout app built with React Native, Expo
 
 
 
@@ -9,10 +9,7 @@ A cross-platform Home-Workout clone app built with React Native, Expo
 ## Features
 
 - Cross-platform (Web, iOS, Android)
-- Pick the origin and destination
-- Pick ride type (UberX, Uber XL, Uber LUX)
-- Show fare and travel distance
-- Show travel time
+
 
 ## Run Locally
 
@@ -25,7 +22,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd react-native-uber-clone
+  cd Home-Workout
 ```
 
 Install dependencies
